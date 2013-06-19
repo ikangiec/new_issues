@@ -1,0 +1,33 @@
+<%- content_for :nav do %>
+	<li><a href="/issues/2">First issue</a></li>
+<%- end %>
+
+<%=render "search"%>
+
+<h1>Listing issues</h1>
+
+<table>
+  <tr>
+    <th>Title <%=link_to "sort", issues_path(sort: "title")%></th>
+    <th>Description <%=link_to "sort", issues_path(sort: "description")%></th>
+    <th>No followers <%=link_to "sort", issues_path(sort: "no_followers")%></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @issues.each do |issue| %>
+  <tr>
+    <td><%= issue.title %></td>
+    <td><%= issue.description %></td>
+    <td><%= issue.no_followers %></td>
+    <td><%= link_to 'Show', issue_path(id: issue.id) %></td>
+    <td><%= link_to 'Edit', edit_issue_path(id: issue.id) %></td>
+    <td><%= link_to 'Destroy', issue_path(id: issue.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Issue', new_issue_path %>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>NewIssues</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <%= auto_discovery_link_tag(:rss, issues_path(:rss)) %>
+</head>
+<body>
+	<ul>
+		<li><a href="/timeline/index"><%=t "nav.timeline" %></a></li>
+		<li><a href="/issues"><%=t "nav.issues.list" %></a></li>
+		<li><a href="/issues/new"><%=t "nav.issues.new" %></a></li>
+		<%= yield :nav %>
+	</ul>
+
+<%= yield %>
+
+</body>
+</html>

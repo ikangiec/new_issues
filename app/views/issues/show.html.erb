@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @issue.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @issue.description %>
+</p>
+
+<p>
+  <b>No followers:</b>
+  <%= @issue.no_followers %>
+</p>
+
+<p><b>Created at: </b>
+	<%= l @issue.created_at, format: :short %>
+</p>
+
+<p><b>Project: </b>
+	<%= link_to @issue.project.name, @issue.project %>
+</p>
+
+
+<%= link_to 'Edit', edit_issue_path(@issue) %> |
+<%= link_to 'Back', issues_path %>
